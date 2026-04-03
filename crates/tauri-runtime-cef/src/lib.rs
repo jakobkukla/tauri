@@ -2019,6 +2019,9 @@ impl<T: UserEvent> CefRuntime<T> {
     }
     command_line_args.push(("--enable-media-stream".to_string(), None));
 
+    // FIXME: should be configurable from tauri::Builder
+    command_line_args.push(("--ozone-platform".to_string(), Some("x11".to_string())));
+
     let mut app = cef_impl::TauriApp::new(
       cef_context.clone(),
       runtime_args.custom_schemes,
