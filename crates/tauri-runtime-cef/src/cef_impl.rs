@@ -2801,6 +2801,8 @@ fn handle_window_message<T: UserEvent>(
             #[cfg(target_os = "linux")]
             unsafe {
               let xid = window.window_handle();
+              println!("CEF window handle: {}", xid);
+              println!("CEF window handle hex: {:#x}", xid);
               Ok(raw_window_handle::WindowHandle::borrow_raw(
                 raw_window_handle::RawWindowHandle::Xlib(raw_window_handle::XlibWindowHandle::new(
                   xid,
